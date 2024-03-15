@@ -19,6 +19,11 @@ public class movementToSomeone : MonoBehaviour
     //state change
     [SerializeField] float sightRange;
     bool playerInSight;
+    //draw gizmo
+    [SerializeField]bool drawGizmo;
+
+    //state flee
+    
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +81,10 @@ public class movementToSomeone : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(transform.position,sightRange);
+        if (drawGizmo)
+        {
+            Gizmos.DrawSphere(transform.position, sightRange);
+        }
     }
     
 }
