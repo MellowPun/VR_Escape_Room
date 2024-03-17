@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterFleeState : MonsterBaseState
 {
@@ -10,7 +11,7 @@ public class MonsterFleeState : MonsterBaseState
     Vector3 normalizedDirection;
     
     float timer;
-    float runningSeconds = 7;
+    float runningSeconds = 10;
 
     public override void EnterState(StateManagerMonsters monster)
     {
@@ -24,9 +25,12 @@ public class MonsterFleeState : MonsterBaseState
         magnitudeDirection = direction.magnitude;
         normalizedDirection = direction.normalized;
         monster.transform.position += normalizedDirection * magnitudeDirection * Time.deltaTime;
+        
         timer += Time.deltaTime;
         if(timer > runningSeconds ) 
         {
+            timer = 0;
+
             monster.PatrolState();
         }
 

@@ -50,6 +50,8 @@ public class MonsterPatrolState : MonsterBaseState
     public override void OnCollisionEnter(StateManagerMonsters monster, Collider collision)
     {
         GameObject other = collision.gameObject;
+        
+
         if (other.CompareTag("Lightsource"))
         {
             monster.FleeState();    
