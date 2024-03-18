@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class LightAttacker : MonoBehaviour
+public class SoundMonster : MonoBehaviour
 {
-
     NavMeshAgent _Agent;
     [SerializeField] GameObject _Player;
     [SerializeField] LayerMask _GroundLayer, _PlayerLayer;
@@ -22,7 +20,7 @@ public class LightAttacker : MonoBehaviour
     void Start()
     {
         _Agent = GetComponent<NavMeshAgent>();
-        
+
 
     }
 
@@ -35,7 +33,7 @@ public class LightAttacker : MonoBehaviour
         }
         else
         {
-            
+
             if (walkPointSet && !triggersFound)
             {
                 _Agent.SetDestination(destPoint);
@@ -47,7 +45,7 @@ public class LightAttacker : MonoBehaviour
             }
             else
             {
-                if(walkPointSet && triggersFound)
+                if (walkPointSet && triggersFound)
                 {
                     _Agent.SetDestination(triggersDest);
                 }
@@ -66,11 +64,11 @@ public class LightAttacker : MonoBehaviour
         triggers = other.gameObject;
 
 
-        if (triggers.CompareTag("LightSource"))
+        if (triggers.CompareTag("SoundRange"))
         {
-            Debug.Log("LightSource");
+            Debug.Log("Sound");
             triggersFound = true;
-            triggersDest = triggers.transform.parent.position ;
+            triggersDest = triggers.transform.parent.position;
 
         }
         if (triggers.CompareTag("Player"))
@@ -81,9 +79,10 @@ public class LightAttacker : MonoBehaviour
             triggersFound = true;
 
         }
+        
 
     }
-    
+
 
     private void OnTriggerExit(Collider other)
     {
@@ -91,6 +90,7 @@ public class LightAttacker : MonoBehaviour
         walkPointSet = false;
 
     }
+    
     void SearchForDest()
     {
         float z = Random.Range(-walkRange, walkRange);
@@ -102,5 +102,4 @@ public class LightAttacker : MonoBehaviour
             walkPointSet = true;
         }
     }
-
 }

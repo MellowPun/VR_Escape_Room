@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - LightSource
+  - SoundRange
   layers:
   - Default
   - TransparentFX
