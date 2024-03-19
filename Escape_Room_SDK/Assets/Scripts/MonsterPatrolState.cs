@@ -12,12 +12,15 @@ public class MonsterPatrolState : MonsterBaseState
     bool playerInSight;
     float sightRange = 20;
 
+
     public override void EnterState(StateManagerMonsters monster)
     {
         Debug.Log("We patrolling");
+
     }
     public override void UpdateState(StateManagerMonsters monster) 
     {
+        
         NavMeshAgent agent = monster.GetComponent<NavMeshAgent>();
         LayerMask playerLayer = monster.playerLayer;    
 
@@ -52,7 +55,7 @@ public class MonsterPatrolState : MonsterBaseState
         GameObject other = collision.gameObject;
         
 
-        if (other.CompareTag("Lightsource"))
+        if (other.CompareTag("LightSource"))
         {
             monster.FleeState();    
         }

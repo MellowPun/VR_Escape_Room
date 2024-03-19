@@ -12,6 +12,7 @@ public class StateManagerMonsters : MonoBehaviour
     public LayerMask groundLayer, playerLayer;
     public float walkRange = 100;
     public float destinationRange = 2;
+    Animator animator;
 
     public MonsterBaseState currentState;
     public MonsterChaseState chaseState = new MonsterChaseState();
@@ -23,7 +24,7 @@ public class StateManagerMonsters : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
+        animator = GetComponent<Animator>();
         currentState = patrolState;
 
         currentState.EnterState(this);
@@ -54,7 +55,7 @@ public class StateManagerMonsters : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("We  colliding");
+        Debug.Log("We colliding");
         Debug.Log(other.gameObject.name);
         currentState.OnCollisionEnter(this, other);
     }

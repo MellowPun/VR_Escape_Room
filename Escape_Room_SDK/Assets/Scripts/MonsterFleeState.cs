@@ -16,6 +16,7 @@ public class MonsterFleeState : MonsterBaseState
     public override void EnterState(StateManagerMonsters monster)
     {
         Debug.Log("We fleeing");
+
     }
     public override void UpdateState(StateManagerMonsters monster)
     {
