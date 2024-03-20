@@ -4558,8 +4558,6 @@ GameObject:
   - component: {fileID: 1252965294}
   - component: {fileID: 1252965301}
   - component: {fileID: 1252965293}
-  - component: {fileID: 1252965299}
-  - component: {fileID: 1252965298}
   - component: {fileID: 1252965300}
   m_Layer: 0
   m_Name: LightFleeer
@@ -4676,49 +4674,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1252965298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252965292}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c6290950672def47ad113f4e0428a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  walkRange: 10
-  sightRange: 20
-  drawGizmo: 0
---- !u!114 &1252965299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252965292}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14e51bd9e4970284d83097e44bb32a6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  walkRange: 100
-  destinationRange: 2
-  sightRange: 20
-  drawGizmo: 0
 --- !u!114 &1252965300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7642,7 +7597,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnkleGrabber
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5800734791279254635, guid: b7382b81db32342499b98a059283101b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7715,7 +7671,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: thc6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7186376673886744839, guid: c89cd815d2b796f419d836ddae453467, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
