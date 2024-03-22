@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class LightAttacker : MonoBehaviour
 {
@@ -84,10 +85,13 @@ public class LightAttacker : MonoBehaviour
         }
         if (triggers.CompareTag("Player"))
         {
-            Debug.Log("You lose");
-            triggersDest = triggers.transform.position;
-
-            triggersFound = true;
+            SceneManager.LoadScene(1);
+            DataSaving data = SaveSystem.LoadPlayer();
+            Vector3 position;
+            position.x = data.position[0];
+            position.y = data.position[1];
+            position.z = data.position[2];
+            triggers.transform.position = position;
 
         }
 

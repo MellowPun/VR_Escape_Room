@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class MonsterChaseState : MonsterBaseState
 {
@@ -28,7 +25,13 @@ public class MonsterChaseState : MonsterBaseState
         }
         if (other.CompareTag("Player"))
         {
-            Debug.Log("You lose");
+            SceneManager.LoadScene(1);
+            DataSaving data = SaveSystem.LoadPlayer();
+            Vector3 position;
+            position.x = data.position[0];
+            position.y = data.position[1];
+            position.z = data.position[2];
+            other.transform.position = position;
         }
     }
 }

@@ -65,7 +65,7 @@ public class MonsterPatrolState : MonsterBaseState
         }
         if (other.CompareTag("Player"))
         {
-            Debug.Log("You lose");
+            Debug.Log("player");
         }
     }
     void SearchForDest(StateManagerMonsters monster)

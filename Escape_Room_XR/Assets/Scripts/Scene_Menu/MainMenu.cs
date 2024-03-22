@@ -5,9 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject player;
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        DataSaving data = SaveSystem.LoadPlayer();
+        Vector3 position;
+
+        if (data == null)
+        {
+            SceneManager.LoadScene(1);
+
+
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+
+            position.x = data.position[0];
+            position.y = data.position[1];
+            position.z = data.position[2];
+            player.transform.position = position;
+        }
         Debug.Log("Play");
     }
     public void QuitGame()
