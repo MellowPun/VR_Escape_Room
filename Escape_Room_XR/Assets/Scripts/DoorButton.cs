@@ -11,7 +11,7 @@ public class DoorButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isOpen = false;
+        isOpen = true;
         GetComponent<XRSimpleInteractable>().selectEntered.AddListener(x=> OpenDoor());
     }
 
