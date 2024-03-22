@@ -12,8 +12,10 @@ public class Flashlight : MonoBehaviour
     void Start()
     {
         _light = GetComponentInChildren<Light>();
+        _light.enabled = true;
+
         //_audioSource = GetComponent<AudioSource>();
-        
+
     }
     public void LightOn()
     {

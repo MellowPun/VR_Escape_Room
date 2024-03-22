@@ -7,11 +7,11 @@ using UnityEngine.XR.Interaction.Toolkit.Filtering;
 public class DoorButton : MonoBehaviour
 {
     public GameObject door;
-    bool isOpen;
+    static bool isOpen;
     // Start is called before the first frame update
     void Start()
     {
-        isOpen = true;
+        isOpen = false;
         GetComponent<XRSimpleInteractable>().selectEntered.AddListener(x=> OpenDoor());
     }
 
@@ -21,11 +21,11 @@ public class DoorButton : MonoBehaviour
         isOpen= !isOpen;
         if(isOpen)
         {
-            door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y + 2f, door.transform.position.z);
+            door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y + 3f, door.transform.position.z);
         }
         if(!isOpen)
         {
-            door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y - 2f, door.transform.position.z);
+            door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y - 3f, door.transform.position.z);
 
         }
     }
