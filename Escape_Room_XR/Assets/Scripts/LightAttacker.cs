@@ -39,7 +39,10 @@ public class LightAttacker : MonoBehaviour
         }
         else
         {
-            
+            if (_Agent.pathStatus == NavMeshPathStatus.PathInvalid || _Agent.pathStatus == NavMeshPathStatus.PathPartial)
+            {
+                SearchForDest();
+            }
             if (walkPointSet && !triggersFound)
             {
                 
@@ -48,6 +51,7 @@ public class LightAttacker : MonoBehaviour
                     walkPointSet = false;
                 }
                 _Agent.SetDestination(destPoint);
+
 
             }
             else
@@ -101,7 +105,7 @@ public class LightAttacker : MonoBehaviour
         float z = Random.Range(-walkRange, walkRange);
         float x = Random.Range(-walkRange, walkRange);
         destPoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
-
+        
         if (Physics.Raycast(destPoint, Vector3.down, _GroundLayer))
         {
             walkPointSet = true;

@@ -34,6 +34,10 @@ public class MonsterPatrolState : MonsterBaseState
             }
             if (walkPointSet)
             {
+                if (agent.pathStatus == NavMeshPathStatus.PathInvalid || agent.pathStatus == NavMeshPathStatus.PathPartial)
+                {
+                    SearchForDest(monster);
+                }
                 agent.SetDestination(destPoint);
 
             }
@@ -69,10 +73,12 @@ public class MonsterPatrolState : MonsterBaseState
         float walkRange = monster.walkRange;
         LayerMask groundLayer = monster.groundLayer;
 
-
+        
         float z = Random.Range(-walkRange, walkRange);
         float x = Random.Range(-walkRange, walkRange);
         destPoint = new Vector3(monster.transform.position.x + x, monster.transform.position.y, monster.transform.position.z + z);
+
+        
 
         if (Physics.Raycast(destPoint, Vector3.down, groundLayer))
         {

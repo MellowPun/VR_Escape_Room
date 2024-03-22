@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -38,7 +39,10 @@ public class SoundMonster : MonoBehaviour
         }
         else
         {
-
+            if (_Agent.pathStatus == NavMeshPathStatus.PathInvalid || _Agent.pathStatus == NavMeshPathStatus.PathPartial)
+            {
+                SearchForDest();
+            }
             if (walkPointSet && !triggersFound)
             {
                 _Agent.SetDestination(destPoint);
@@ -84,8 +88,6 @@ public class SoundMonster : MonoBehaviour
             triggersFound = true;
 
         }
-        
-
     }
 
 
@@ -95,7 +97,7 @@ public class SoundMonster : MonoBehaviour
         walkPointSet = false;
 
     }
-    
+
     void SearchForDest()
     {
         float z = Random.Range(-walkRange, walkRange);

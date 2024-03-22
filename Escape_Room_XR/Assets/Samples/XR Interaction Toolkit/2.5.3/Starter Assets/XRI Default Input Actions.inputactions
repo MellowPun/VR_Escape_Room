@@ -781,6 +781,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "88bcb1a1-3f24-4328-acaa-7159c2cea409",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -946,6 +955,17 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "Generic XR Controller",
                     "action": "Scale Delta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a219cb91-2ea2-46de-b0f8-aeae59808065",
+                    "path": "<XRController>{LeftHand}/{MenuButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
